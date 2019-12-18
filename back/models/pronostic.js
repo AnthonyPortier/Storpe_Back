@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) =>{
     });
 
     Pronostic.associate = function (models) {
-
+        Pronostic.belongsTo(models.User)
     }
     return Pronostic;
 };

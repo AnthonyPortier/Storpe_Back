@@ -20,6 +20,8 @@ module.exports = (sequelize, DataTypes) =>{
             type: DataTypes.INT
         }   
     });
-
-return Match;
+    Match.associate = function (models) {
+        Match.belongsToMany(models.Pronostic)
+    }
+    return Match;
 };
