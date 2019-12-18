@@ -4,7 +4,4 @@ const sequelize = require('sequelize')
 
 const router = () => { 
     require('./routes/dev')(app)
-    require('./routes/user')(app)
 }
-
-module.exports= router;

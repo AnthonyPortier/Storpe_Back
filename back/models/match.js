@@ -3,7 +3,7 @@
 const Sequelize = require('sequelize')
 
 module.exports = (sequelize, DataTypes) =>{
-    const Match = Sequelize.define('match', {
+    const Match = Sequelize.define('Match', {
         equipe_1:{
             type: DataTypes.STRING,
             allowNull: false
@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) =>{
             allowNull: false
         }   
     });
-    
+
     Match.associate = function (models) {
         Match.belongsToMany(models.Pronostic)
     }
