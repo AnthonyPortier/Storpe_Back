@@ -14,5 +14,8 @@ const Match = Sequelize.define('match', {
     },
     cote2:{
         type: DataTypes.INTs
+    },
+    resultat_match:{
+        type: DataTypes.INT
     }
 })

@@ -8,5 +8,8 @@ const Pronostic = Sequelize.define('pronostic', {
     },
     odd_defined:{
         type: DataTypes.STRING
+    },
+    resultat_pronostic:{
+        type: DataTypes.INT
     }
 })
