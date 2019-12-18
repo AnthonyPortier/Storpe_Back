@@ -3,9 +3,9 @@
 const Sequelize = require('sequelize')
 
 module.exports = (sequelize, DataTypes) =>{
-    const Pronostic = Sequelize.define('pronostic', {
+    const Pronostic = sequelize.define('Pronostic', {
         user_pronostic:{
-            type: DataTypes.INT,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         odd_defined:{
@@ -13,13 +13,14 @@ module.exports = (sequelize, DataTypes) =>{
             allowNull: false
         },
         resultat_pronostic:{
-            type: DataTypes.INT,
+            type: DataTypes.INTEGER,
             allowNull: true
         }
     });
 
     Pronostic.associate = function (models) {
         Pronostic.belongsTo(models.User)
+        Pronostic.hasOne(models.Match)
     }
     return Pronostic;
 };

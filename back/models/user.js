@@ -13,11 +13,11 @@ module.exports = (sequelize, DataTypes) =>{
             allowNull: false
         },
         score: {
-            type: DataTypes.INT,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         daily_bet:{
-            type: DataTypes.INT,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         email:{
@@ -33,6 +33,7 @@ module.exports = (sequelize, DataTypes) =>{
             allowNull: false
         }
     });
+    
     User.associate = function (models) {
         User.hasMany(models.Pronostic)
     }

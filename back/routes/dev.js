@@ -4,7 +4,7 @@ module.exports = app => {
 // get all users
 app.get('/user', (req, res) =>{
     models
-    .users
+    .User
     .findAll()
     .then(x => {res.json(x)})
 })
