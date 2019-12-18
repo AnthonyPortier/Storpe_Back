@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) =>{
             type: DataTypes.INT,
             allowNull: false
         },
-        daily_bet:{
+        daily_bet: {
             type: DataTypes.INT,
             allowNull: false
         },

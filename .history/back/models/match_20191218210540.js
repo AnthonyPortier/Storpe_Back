@@ -25,7 +25,6 @@ module.exports = (sequelize, DataTypes) =>{
             allowNull: false
         }   
     });
-    
     Match.associate = function (models) {
         Match.belongsToMany(models.Pronostic)
     }

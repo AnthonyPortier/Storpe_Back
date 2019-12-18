@@ -5,16 +5,13 @@ const Sequelize = require('sequelize')
 module.exports = (sequelize, DataTypes) =>{
     const Pronostic = Sequelize.define('pronostic', {
         user_pronostic:{
-            type: DataTypes.INT,
-            allowNull: false
+            type: DataTypes.INT
         },
         odd_defined:{
-            type: DataTypes.STRING,
-            allowNull: false
+            type: DataTypes.STRING
         },
         resultat_pronostic:{
-            type: DataTypes.INT,
-            allowNull: true
+            type: DataTypes.INT
         }
     });
 
