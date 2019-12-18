@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 
     require('./routes/dev')(app)
     require('./routes/user')(app)
+    require('./routes/match')(app)
 
 
 

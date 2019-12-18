@@ -6,7 +6,7 @@ app.get('/user', (req, res) => {
     models
     .User
     .findAll()
-    .then(x => {res.json(x)})
+    .then(x => res.json(x))
 })
 
 
