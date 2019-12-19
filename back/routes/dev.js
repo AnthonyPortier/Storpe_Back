@@ -27,4 +27,12 @@ module.exports = app => {
             where: {id: req.params.id}
         })
     })
+
+    //get all pronostic
+    app.get('/user/pronostic', (req, res) => {
+        models
+        .Pronostic
+        .findAll()
+        .then(x => res.json(x))
+    })
 }

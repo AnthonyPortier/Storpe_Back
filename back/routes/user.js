@@ -14,7 +14,9 @@ app.get('/user', (req, res) => {
     app.get('/user/profile/:id', (req, res) => {
         models
         .User
-        .findByPk(req.params.id)
+        .findByPk(req.params.id, {
+            include: [models.Pronostic]
+        })
         .then(x => res.json(x))
     })
 
@@ -35,13 +37,45 @@ app.get('/user', (req, res) => {
                 id: req.params.id
             }
         })
-        .then(() => console.log('update ok'))
+        .then(x => res.json(x))
     })
 
 //delete user
     app.delete('/user/profile/:id', (req, res) =>{
         models
         .User
+        .destroy({
+            where:{
+                id: req.params.id
+            }
+        })
+        .then(() => console.log('profile deleted'))
+    })
+
+    // create a pronostic
+    app.post('/user/newpronostic', (req, res) =>{
+        models
+        .Pronostic
+        .create(req.body)
+        .then(x => res.json(x))
+    })
+
+    //update a pronostic
+    app.put('/user/pronostic/:id', (req, res) =>{
+        models
+        .Pronostic
+        .update(req.body, {
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(x => res.json(x))
+    })
+
+    // delete a pronostic
+    app.delete('/user/pronostic/:id', (req, res) =>{
+        models
+        .Pronostic
         .destroy({
             where:{
                 id: req.params.id
