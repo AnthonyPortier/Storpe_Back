@@ -17,4 +17,16 @@ module.exports = app => {
         .findByPk(req.params.id)
         .then(x => res.json(x))
     })
+
+    //update match
+    app.put('/match/:id', (req, res) => {
+        models
+        .Match
+        .update(req.body, {
+            where:{
+                id: req.params.id
+            }
+        })
+        .then(x => res.json(x))
+    })
 }

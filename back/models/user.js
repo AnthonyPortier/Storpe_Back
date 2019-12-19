@@ -14,7 +14,8 @@ module.exports = (sequelize, DataTypes) =>{
         },
         score: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            defaultValue: 1000
         },
         daily_bet:{
             type: DataTypes.INTEGER,

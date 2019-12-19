@@ -1,4 +1,5 @@
 const models = require('../models')
+const faker = require('faker')
 
 module.exports = app => {
     // get all users
@@ -33,6 +34,125 @@ module.exports = app => {
         models
         .Pronostic
         .findAll()
+        .then(x => res.json(x))
+    })
+
+    //faker routes post user
+    app.post('/faker/user', (req, res) => {
+        models
+        .User
+        .bulkCreate([{
+            firstname: faker.name.firstName(),
+            lastname: faker.name.lastName(),
+            daily_bet: faker.random.number(),
+            email: faker.internet.email(),
+            pseudo: faker.internet.userName(),
+            password: faker.internet.password()
+        },
+        {
+            firstname: faker.name.firstName(),
+            lastname: faker.name.lastName(),
+            daily_bet: faker.random.number(),
+            email: faker.internet.email(),
+            pseudo: faker.internet.userName(),
+            password: faker.internet.password()
+        },
+        {
+            firstname: faker.name.firstName(),
+            lastname: faker.name.lastName(),
+            daily_bet: faker.random.number(),
+            email: faker.internet.email(),
+            pseudo: faker.internet.userName(),
+            password: faker.internet.password()
+        },
+        {
+            firstname: faker.name.firstName(),
+            lastname: faker.name.lastName(),
+            daily_bet: faker.random.number(),
+            email: faker.internet.email(),
+            pseudo: faker.internet.userName(),
+            password: faker.internet.password()
+        },
+        {
+            firstname: faker.name.firstName(),
+            lastname: faker.name.lastName(),
+            daily_bet: faker.random.number(),
+            email: faker.internet.email(),
+            pseudo: faker.internet.userName(),
+            password: faker.internet.password()
+        },
+        {
+            firstname: faker.name.firstName(),
+            lastname: faker.name.lastName(),
+            daily_bet: faker.random.number(),
+            email: faker.internet.email(),
+            pseudo: faker.internet.userName(),
+            password: faker.internet.password()
+        },
+        {
+            firstname: faker.name.firstName(),
+            lastname: faker.name.lastName(),
+            daily_bet: faker.random.number(),
+            email: faker.internet.email(),
+            pseudo: faker.internet.userName(),
+            password: faker.internet.password()
+        },
+        {
+            firstname: faker.name.firstName(),
+            lastname: faker.name.lastName(),
+            daily_bet: faker.random.number(),
+            email: faker.internet.email(),
+            pseudo: faker.internet.userName(),
+            password: faker.internet.password()
+        },
+        {
+            firstname: faker.name.firstName(),
+            lastname: faker.name.lastName(),
+            daily_bet: faker.random.number(),
+            email: faker.internet.email(),
+            pseudo: faker.internet.userName(),
+            password: faker.internet.password()
+        },
+        {
+            firstname: faker.name.firstName(),
+            lastname: faker.name.lastName(),
+            daily_bet: faker.random.number(),
+            email: faker.internet.email(),
+            pseudo: faker.internet.userName(),
+            password: faker.internet.password()
+        },
+        {
+            firstname: faker.name.firstName(),
+            lastname: faker.name.lastName(),
+            daily_bet: faker.random.number(),
+            email: faker.internet.email(),
+            pseudo: faker.internet.userName(),
+            password: faker.internet.password()
+        },
+        {
+            firstname: faker.name.firstName(),
+            lastname: faker.name.lastName(),
+            daily_bet: faker.random.number(),
+            email: faker.internet.email(),
+            pseudo: faker.internet.userName(),
+            password: faker.internet.password()
+        },
+        {
+            firstname: faker.name.firstName(),
+            lastname: faker.name.lastName(),
+            daily_bet: faker.random.number(),
+            email: faker.internet.email(),
+            pseudo: faker.internet.userName(),
+            password: faker.internet.password()
+        },
+        {
+            firstname: faker.name.firstName(),
+            lastname: faker.name.lastName(),
+            daily_bet: faker.random.number(),
+            email: faker.internet.email(),
+            pseudo: faker.internet.userName(),
+            password: faker.internet.password()
+        }])
         .then(x => res.json(x))
     })
 }

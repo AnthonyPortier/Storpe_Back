@@ -4,19 +4,35 @@ const Sequelize = require('sequelize')
 
 module.exports = (sequelize, DataTypes) => {
     const Match = sequelize.define('Match', {
-        equipe_1: {
+        homeTeam: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        equipe_2: {
+        awayTeam: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        odd: {
-            type: DataTypes.INTEGER,
+        odd_home: {
+            type: DataTypes.STRING,
             allowNull: false
         },
-        resultat_match: {
+        odd_draw: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        odd_away: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        logo_homeTeam: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        logo_awayTeam: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        result_match: {
             type: DataTypes.INTEGER,
         }
     },{
