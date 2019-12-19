@@ -163,7 +163,7 @@ module.exports = app => {
     app.post('/match', (req, res) => {
         models
             .Match
-            .create(req.body)
+            ..create(req.body)
             .then(x => res.json(x))
     })
 }

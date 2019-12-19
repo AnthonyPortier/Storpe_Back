@@ -163,7 +163,13 @@ module.exports = app => {
     app.post('/match', (req, res) => {
         models
             .Match
-            .create(req.body)
-            .then(x => res.json(x))
-    })
+            .create([{
+                homeTeam: OM
+                awayTeam: Nice
+                odd_home: 1
+                odd_draw: 2
+                odd_away: 3
+                logo_homeTeam:'https://upload.wikimedia.org/wikipedia/fr/thumb/4/43/Logo_Olympique_de_Marseille.svg/806px-Logo_Olympique_de_Marseille.svg.png'
+                logo_awayTeam: "https://cdn.1min30.com/wp-content/uploads/2018/08/logo-Nice.png"
+                result_match: 1
 }

@@ -44,7 +44,6 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Match.associate = function (models) {
-        Match.hasMany(models.Pronostic)
     }
     return Match;
 };

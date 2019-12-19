@@ -64,14 +64,14 @@ module.exports = app => {
                                     ['score'], {
                                         by: changeScore,
                                         where: {
-                                            id: prono.UserId
+                                            id: req.body.id
                                         }
                                     }
-                                )
+                                ).then(k => k)
                         })
-                    }).then(x => res.send('ok'))
+                    })
                 })
             })
 
-    })
+    }).then(x => res.send('ok'))
 }

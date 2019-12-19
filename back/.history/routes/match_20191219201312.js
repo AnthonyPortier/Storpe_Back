@@ -41,36 +41,22 @@ module.exports = app => {
                             matchId: req.body.id
                         }
                     })
-                    .then(d => {
-                    models
-                    .Pronostic
-                    .findAll({
-                        where:
-                        {
-                            matchId:req.body.id
-                        }
-                    })
                     .then(x => {
-                        console.log("Hello there")
-                        console.log(x)
                         x.map(prono => {
-                            console.log(prono.user_pronostic)
-                            console.log(prono.resultat_pronostic)
                             const win = prono.user_pronostic === prono.resultat_pronostic
                             const changeScore = resultToPoints(prono.odd_defined, win)
                             models
                                 .User
                                 .increment(
-                                    ['score'], {
+                                    score, {
                                         by: changeScore,
                                         where: {
-                                            id: prono.UserId
+                                            id: prono.user_id
                                         }
                                     }
                                 )
                         })
-                    }).then(x => res.send('ok'))
-                })
+                    })
             })
 
     })

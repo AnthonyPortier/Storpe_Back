@@ -64,7 +64,7 @@ module.exports = app => {
                                     ['score'], {
                                         by: changeScore,
                                         where: {
-                                            id: prono.UserId
+                                            id: req.body.id
                                         }
                                     }
                                 )

@@ -4,10 +4,6 @@ const Sequelize = require('sequelize')
 
 module.exports = (sequelize, DataTypes) => {
     const Match = sequelize.define('Match', {
-        sport:{
-            type: DataTypes.STRING,
-            allowNull: false
-        },
         homeTeam: {
             type: DataTypes.STRING,
             allowNull: false
@@ -44,7 +40,6 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Match.associate = function (models) {
-        Match.hasMany(models.Pronostic)
     }
     return Match;
 };

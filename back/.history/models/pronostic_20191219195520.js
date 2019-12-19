@@ -2,17 +2,17 @@
 
 const Sequelize = require('sequelize')
 
-module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) =>{
     const Pronostic = sequelize.define('Pronostic', {
-        user_pronostic: {
+        user_pronostic:{
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        odd_defined: {
+        odd_defined:{
             type: DataTypes.STRING,
             allowNull: false
         },
-        resultat_pronostic: {
+        resultat_pronostic:{
             type: DataTypes.INTEGER,
             allowNull: true
         }
@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Pronostic.associate = function (models) {
         Pronostic.belongsTo(models.User)
-        Pronostic.belongsTo(models.Match)
+        Pronostic.BelongsTo(models.Match)
     }
     return Pronostic;
 };

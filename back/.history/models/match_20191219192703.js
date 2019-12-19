@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
         sport:{
             type: DataTypes.STRING,
             allowNull: false
-        },
+        }
         homeTeam: {
             type: DataTypes.STRING,
             allowNull: false
@@ -44,7 +44,6 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Match.associate = function (models) {
-        Match.hasMany(models.Pronostic)
     }
     return Match;
 };

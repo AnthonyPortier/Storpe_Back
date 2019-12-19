@@ -159,11 +159,16 @@ module.exports = app => {
             .then(x => res.json(x))
     })
 
-    //create match
-    app.post('/match', (req, res) => {
+    // faker match create match
+    app.post('/faker/match', (req, res) => {
         models
             .Match
-            .create(req.body)
-            .then(x => res.json(x))
-    })
+            .bulkCreate([{
+                    firstname: faker.name.firstName(),
+                    lastname: faker.name.lastName(),
+                    daily_bet: faker.random.number(),
+                    email: faker.internet.email(),
+                    pseudo: faker.internet.userName(),
+                    password: faker.internet.password()
+                },
 }

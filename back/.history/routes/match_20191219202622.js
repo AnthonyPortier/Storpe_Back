@@ -52,10 +52,8 @@ module.exports = app => {
                     })
                     .then(x => {
                         console.log("Hello there")
-                        console.log(x)
+                        res.json(x)
                         x.map(prono => {
-                            console.log(prono.user_pronostic)
-                            console.log(prono.resultat_pronostic)
                             const win = prono.user_pronostic === prono.resultat_pronostic
                             const changeScore = resultToPoints(prono.odd_defined, win)
                             models
@@ -64,12 +62,13 @@ module.exports = app => {
                                     ['score'], {
                                         by: changeScore,
                                         where: {
-                                            id: prono.UserId
+                                            id: 1
                                         }
                                     }
                                 )
+                                .then( e => res.send(e))
                         })
-                    }).then(x => res.send('ok'))
+                    })
                 })
             })
 
