@@ -38,6 +38,10 @@ module.exports = (sequelize, DataTypes) => {
         },
         result_match: {
             type: DataTypes.INTEGER,
+        },
+        date_match:{
+            type: DataTypes.DATE
+            allowNull: false
         }
     },{
         underscored: true
