@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
         },
         date_match:{
-            type: DataTypes.DATE
+            type: DataTypes.DATE,
             allowNull: false
         }
     },{
