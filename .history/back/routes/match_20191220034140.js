@@ -13,7 +13,7 @@ module.exports = app => {
     })
 
     //get football match
-    app.get('/match/football', (req, res) => {
+    app.get('/match/foot/', (req, res) => {
         models
         .Match
         .findAll({
@@ -25,7 +25,7 @@ module.exports = app => {
     })
 
     //get basketball match
-    app.get('/match/basketball', (req, res) => {
+    app.get('/match/basketball/', (req, res) => {
         models
         .Match
         .findAll(req.params.sport, {

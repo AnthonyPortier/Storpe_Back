@@ -4,16 +4,16 @@ const resultToPoints = require('../assets/assets')
 
 module.exports = app => {
 
-    // get all match
-    app.get('/match', (req, res) => {
-        models
-            .Match
-            .findAll()
-            .then(x => res.json(x))
-    })
+    // // get all match
+    // app.get('/match', (req, res) => {
+    //     models
+    //         .Match
+    //         .findAll()
+    //         .then(x => res.json(x))
+    // })
 
     //get football match
-    app.get('/match/football', (req, res) => {
+    app.get('/match/football/', (req, res) => {
         models
         .Match
         .findAll({
@@ -25,7 +25,7 @@ module.exports = app => {
     })
 
     //get basketball match
-    app.get('/match/basketball', (req, res) => {
+    app.get('/match/basketball/', (req, res) => {
         models
         .Match
         .findAll(req.params.sport, {

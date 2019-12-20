@@ -13,19 +13,19 @@ module.exports = app => {
     })
 
     //get football match
-    app.get('/match/football', (req, res) => {
+    app.get('/match/foot/', (req, res) => {
         models
         .Match
         .findAll({
             where: {
-                sport: 'football'
+                sport: 'foot'
             }
         })
         .then(x => res.json(x))
     })
 
     //get basketball match
-    app.get('/match/basketball', (req, res) => {
+    app.get('/match/basketball/', (req, res) => {
         models
         .Match
         .findAll(req.params.sport, {

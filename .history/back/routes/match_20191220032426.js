@@ -12,27 +12,11 @@ module.exports = app => {
             .then(x => res.json(x))
     })
 
-    //get football match
-    app.get('/match/football', (req, res) => {
+    //get match by sport
+    app.get('/match', (req, res) => {
         models
         .Match
-        .findAll({
-            where: {
-                sport: 'football'
-            }
-        })
-        .then(x => res.json(x))
-    })
-
-    //get basketball match
-    app.get('/match/basketball', (req, res) => {
-        models
-        .Match
-        .findAll(req.params.sport, {
-            where: {
-                sport: 'basketball'
-            }
-        })
+        .findAll(req.params.sport)
         .then(x => res.json(x))
     })
 

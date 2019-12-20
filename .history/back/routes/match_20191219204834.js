@@ -12,30 +12,6 @@ module.exports = app => {
             .then(x => res.json(x))
     })
 
-    //get football match
-    app.get('/match/football', (req, res) => {
-        models
-        .Match
-        .findAll({
-            where: {
-                sport: 'football'
-            }
-        })
-        .then(x => res.json(x))
-    })
-
-    //get basketball match
-    app.get('/match/basketball', (req, res) => {
-        models
-        .Match
-        .findAll(req.params.sport, {
-            where: {
-                sport: 'basketball'
-            }
-        })
-        .then(x => res.json(x))
-    })
-
     //get match by id
     app.get('/match/:id', (req, res) => {
         models

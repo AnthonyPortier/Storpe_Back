@@ -20,4 +20,12 @@ module.exports = app => {
         .then(x => res.json(x))
     }
     )
+
+    app.post('/user/mypronostics', (req, res) => {
+        models
+        .Pronostic
+        .bulkcreate(req.body)
+        .then(x => res.json(x))
+    }
+    )
 }
