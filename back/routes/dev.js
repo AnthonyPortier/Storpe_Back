@@ -1,6 +1,6 @@
 const models = require('../models')
 const faker = require('faker')
-
+const data = require('../dataManagement/dataManager')
 module.exports = app => {
     // get all users
     app.get('/user', (req, res) => {
@@ -164,6 +164,13 @@ module.exports = app => {
         models
             .Match
             .create(req.body)
+            .then(x => res.json(x))
+    })
+    //populate match
+    app.post('/populate/matches', (req, res) => {
+        models
+            .Match
+            .bulkCreate(data)
             .then(x => res.json(x))
     })
 }
