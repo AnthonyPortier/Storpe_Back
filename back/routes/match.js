@@ -44,7 +44,7 @@ module.exports = app => {
             .then(x => res.json(x))
     })
 
-    //update match
+    //update match : id, result
     app.put('/match', (req, res) => {
         models
             .Match
@@ -75,11 +75,7 @@ module.exports = app => {
                         }
                     })
                     .then(x => {
-                        console.log("Hello there")
-                        console.log(x)
                         x.map(prono => {
-                            console.log(prono.user_pronostic)
-                            console.log(prono.resultat_pronostic)
                             const win = prono.user_pronostic === prono.resultat_pronostic
                             const changeScore = resultToPoints(prono.odd_defined, win)
                             models
