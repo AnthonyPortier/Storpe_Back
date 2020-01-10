@@ -16,11 +16,11 @@ const url = "http://localhost:5000"
 const apiUrl = "https://api-football-v1.p.rapidapi.com/v2"
 //
 const apiHeader = {
-    "matchOdd-rapidapi-host": "api-football-v1.p.rapidapi.com",
-    "matchOdd-rapidapi-key": "b83b9990e7mshd384123d903f6a1p10dfd3jsn55c2c5a042bc"
+    "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
+    "x-rapidapi-key": "b83b9990e7mshd384123d903f6a1p10dfd3jsn55c2c5a042bc"
 }
 
-module.exports = function () {
+module.exports = function() {
     let count = 0 // will count the amount of times the weekly update has been done for monitoring reasons
     let counter = 0 // ditto for the daily update
     let allExports = {
@@ -71,8 +71,9 @@ module.exports = function () {
         }
     }
     )
-
-    WeeklyUpdate.schedule(new Date()) // This call is used to fill up the database once on server start up.
+    const startServer = new Date()
+    startServer.setSeconds(startServer.getSeconds()+3)
+    WeeklyUpdate.schedule(startServer) // This call is used to fill up the database once on server start up.
 
 
     const checkMatches = schedule.scheduleJob("5 0 * * *", async () => {  
@@ -150,8 +151,6 @@ module.exports = function () {
         let myCounter = 0
         ///////
         const matches = data.fixtures.api.fixtures
-        console.log('odds fetched : ', odds)
-
         const odds = data.odds.api.odds 
         console.log('odds fetched : ', odds)
         odds.map(matchOdd => {

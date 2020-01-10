@@ -24,7 +24,7 @@ module.exports = app => {
         .then(x => res.json(x))
     })
 
-    //get basketball match
+    //get basketball match (not working)
     app.get('/match/basketball', (req, res) => {
         models
         .Match
@@ -44,11 +44,11 @@ module.exports = app => {
             .then(x => res.json(x))
     })
 
-    //update match : id, result
+    //update match : id, result in the body
     app.put('/match', (req, res) => {
         models
             .Match
-            .update({
+            .update({  // updates the results of the match in the db first.
                 result_match: req.body.result
             }, {
                 where: {
@@ -58,14 +58,16 @@ module.exports = app => {
             .then(e => {
                 models
                     .Pronostic
-                    .update({
+                    .update({ // Then, updates the results of the pronostics in each tuple 
+                        //       that includes the foreign match key.
                         resultat_pronostic: req.body.result
                     }, {
                         where: {
                             matchId: req.body.id
                         }
                     })
-                    .then(d => {
+                    .then(d => { //the update method returns a boolean on whether something to be updated existed or not,
+                                // not the modified elements, so I had to call it again.
                     models
                     .Pronostic
                     .findAll({
@@ -74,8 +76,10 @@ module.exports = app => {
                             matchId:req.body.id
                         }
                     })
-                    .then(x => {
-                        x.map(prono => {
+                    .then(allPronosticsLinkedToMatch => { //returns an array
+                        allPronosticsLinkedToMatch.map(prono => { //each pronostic, according to a defined odd linked to it,
+                                                                 //and whether the user was right or not, needs to increment the
+                                                                //score. (The result from resultToPoints can be negative, so it'll de facto decrement it too)
                             const win = prono.user_pronostic === prono.resultat_pronostic
                             const changeScore = resultToPoints(prono.odd_defined, win)
                             models
